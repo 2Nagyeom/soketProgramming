@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.css';
 import { Navbar, Nav, Container, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -30,13 +30,21 @@ const Main =() => {
 }
 
 const Chat=()=>{
+  const [inputText,setInputText] = useState('')
+
   return(
     <>
     <ul id="messages">
 
     </ul>
-    <form id="form" >
-      <input id="input" autocomplete="off" /><button>Send</button>
+    <form id="form" onSubmit={(e)=>{
+      e.preventDefault();
+
+    }}>
+      <input id="input" autocomplete="off" onChange={(e)=>{
+        setInputText(e.target.value)}}
+        />
+        <button>Send</button>
     </form>
     </>
   )
