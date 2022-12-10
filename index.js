@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  const userId = userId.client.id;
+  const userId = socket.client.id;
   /** 사용자 연결시 서에 로그 표출  */
   console.log('a user connected : ' + userId);
 
