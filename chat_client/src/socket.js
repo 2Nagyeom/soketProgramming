@@ -26,6 +26,7 @@ export const socketInfoReceived = (cbType, cb) => {
   }
 
   socket.on("message", ret => {
+    console.log('받았음 : ' + ret);
     for (let [, cbValue] of cbMap) {
       cbValue(null, ret);
     }
