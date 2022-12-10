@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './App.css';
-import { Navbar, Nav, Container, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, Container, Card} from 'react-bootstrap';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { disconnectSocket, initSocketConnection, sendSocketMessage, socket, socketInfoReceived } from './socket';
 
@@ -46,14 +46,21 @@ const Main = () => {
 
   return (
     <div>
+      <div className='blink_top'/>
+      <h1>신간리스트</h1>
+      <div className='blink_bottom' />
       {boardArr.map((value, index) => {
         return (
-          <div key={index}>
-            {value.name}/
-            {value.title}/
-            {value.body}
-            <img style={{ width: 300, height: 300 }} src={value.picture[0].img} />
-          </div>
+        <div key={index}>
+        <Card border="dark" className="text-center">
+          <Card.Header>{value.name}</Card.Header>
+          <Card.Body>
+            <Card.Title>{value.title}</Card.Title>
+            <Card.Text>{value.body}</Card.Text>
+            </Card.Body>
+        </Card>
+        <div className='blink_bottom'/>
+        </div>
         )
       })}
     </div>

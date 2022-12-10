@@ -28,6 +28,8 @@ io.on('connection', (socket) => {
   socket.on('view_first_board', (msg) => {
     console.log('view first board' + msg);
     io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
   });
 
   /** 사용자가 게시글 남길때 모든 사용자에게 글 전송 */
