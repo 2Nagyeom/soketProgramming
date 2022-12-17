@@ -27,16 +27,19 @@ io.on('connection', (socket) => {
   /** 사용자가 게시글 보는 페이지에 접근시 */
   socket.on('view_first_board', (msg) => {
     console.log('view first board' + msg);
-    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
-    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
-    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    setTimeout(() => {
+      io.emit('view_first_board', { name: '시스템', title: '이건 첫번째 게시글이에요!', body: '202030500!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    }, 1000);
+    setTimeout(() => {
+      io.emit('view_first_board', { name: '시스템', title: '이건 두번째 게시글이에요!', body: '3학년 이나겸!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    }, 1500);
+    setTimeout(() => {
+      io.emit('view_first_board', { name: '시스템', title: '이건 세번째 게시글이에요!', body: '소프트웨어 인공지능 전공!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
+    }, 2000);
+
   });
 
-  /** 사용자가 게시글 남길때 모든 사용자에게 글 전송 */
-  socket.on('write_the_board', (msg) => {
-    console.log('write_the_board' + msg);
-    io.emit('view_first_board', { name: '시스템', title: '이건 첫 게시글이에요!', body: '친구들과 소통할 게시글을 남겨보세요!', picture: [{ index: 1, img: 'https://picok.co.kr/data/file/wing8657/m15526234805252/img_m15526234805252_800.jpg' }] });
-  });
+
   /** 사용자 이탈 감지 */
   socket.on('disconnect', () => {
     console.log('user disconnected');

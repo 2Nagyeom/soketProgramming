@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './App.css';
-import { Navbar, Nav, Container, Card} from 'react-bootstrap';
+import { Navbar, Nav, Container, Card, InputGroup, Form, Button} from 'react-bootstrap';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { disconnectSocket, initSocketConnection, sendSocketMessage, socket, socketInfoReceived } from './socket';
 
@@ -106,9 +106,21 @@ const Chat = () => {
             sendSocketMessage('enter_messageRoom', myNickNameText);
             setIsEnter(true)
           }}>
-            <input id="input" autocomplete="off" style={{ border: '1px', }} value={myNickNameText} onChange={(e) => {
+            <InputGroup className="mb-3" id="input" autocomplete="off" style={{ border: '1px', }} value={myNickNameText} onChange={(e) => {
               setMyNickNameText(e.target.value)
-            }} /><button>닉네임 지정 및 입장</button>
+            }}>
+              <Form.Control
+                placeholder="채팅방에 참가할 이름을 입력해주세요!"
+                aria-label="채팅방에 참가할 이름을 입력해주세요!"
+                aria-describedby="basic-addon2"
+              />
+              <Button variant="outline-secondary" id="button-addon2">
+                닉네임 지정 및 입장
+              </Button>
+            </InputGroup>
+            {/* <input id="input" autocomplete="off" style={{ border: '1px', }} value={myNickNameText} onChange={(e) => {
+              setMyNickNameText(e.target.value)
+            }} /> */}
           </form>
         </div>
         :
